@@ -1,11 +1,16 @@
 """TODO."""
 
 import edn_format as edn
+import os
 
 from . import eval as e
 
 
-def load(filename: str, basefolder: str, tags_filename: str = "./tags"):
+def load(
+    filename: str,
+    basefolder: str,
+    tags_filename: str = f"{os.path.abspath(__file__)}/tags",
+):
     """Load an edn file with the reader macro defined in tags.edn."""
     with open(f"{tags_filename}.edn", "r") as f:
         tags = e.clojure_eval(edn.loads("".join(f.readlines())))
