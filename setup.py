@@ -14,5 +14,6 @@ setup(
     download_url="https://github.com/vimmoos/edn_conf",
     license="LGPLv3",
     install_requires=["edn_format"],
+    include_package_data=True,
     packages=find_packages(),
 )
