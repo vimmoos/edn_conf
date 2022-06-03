@@ -9,7 +9,7 @@ from . import eval as e
 def load(
     filename: str,
     basefolder: str,
-    tags_filename: str = f"{os.path.abspath(__file__)}/tags",
+    tags_filename: str = f"{os.path.dirname(os.path.abspath(__file__))}/tags",
 ):
     """Load an edn file with the reader macro defined in tags.edn."""
     with open(f"{tags_filename}.edn", "r") as f:
