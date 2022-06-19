@@ -29,6 +29,14 @@ def load(
         return edn.loads("".join(f.readlines()))
 
 
-def load_and_resolve(filename: str, basefolder: str = "resources"):
+def load_and_resolve(
+    filename: str,
+    basefolder: str = "resources",
+    tags_filename: str = f"{os.path.dirname(os.path.abspath(__file__))}/tags",
+    relative: bool = False,
+    extension: bool = False,
+):
     """Load and resolve an edn file."""
-    return e.clojure_eval(load(filename, basefolder))
+    return e.clojure_eval(
+        load(filename, basefolder, tags_filename, relative, extension)
+    )
